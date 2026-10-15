@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Martı Kaçışı - Test Ekranı</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas" width="360" height="640"></canvas>
+  </div>
+  <script type="module">
+    import { Game } from '../src/game.js';
+    import { CONFIG } from '../src/config.js';
+
+    const canvas = document.getElementById('game-canvas');
+    const game = new Game(canvas);
+
+    // 1. Oyunu başlat
+    game.handleAction();
+    game.toggleBot();
+
+    // 2. 160 kare (~2.6 saniye) simüle et (Engeller ve simit tam ekrana girsin)
+    for (let i = 0; i < 160; i++) {
+      game.update(1 / 60);
+    }
+
+    // 3. Çizimi yap
+    game.render(1.0);
+  </script>
+</body>
+</html>

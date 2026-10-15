@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Martı Kaçışı - Gece Testi</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas" width="360" height="640"></canvas>
+  </div>
+  <script type="module">
+    import { Game } from '../src/game.js';
+
+    const canvas = document.getElementById('game-canvas');
+    const game = new Game(canvas);
+
+    // 1. Oyunu başlat
+    game.handleAction();
+    game.toggleBot();
+
+    // 2. Skoru 32 yap (Gece evresi!)
+    game.addScore(32, { silent: true });
+
+    // 3. 180 kare simüle et
+    for (let i = 0; i < 180; i++) {
+      game.update(1 / 60);
+    }
+
+    game.render(1.0);
+  </script>
+</body>
+</html>

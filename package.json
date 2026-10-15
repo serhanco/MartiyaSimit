@@ -1,0 +1,13 @@
+{
+  "name": "marti-kacisi",
+  "version": "2.0.0",
+  "description": "Martı Kaçışı - İstanbul Boğazı Macerası HTML5 Oyunu",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/game.test.js"
+  },
+  "dependencies": {
+    "pixi.js": "^8.6.6",
+    "tone": "^15.0.4"
+  }
+}
